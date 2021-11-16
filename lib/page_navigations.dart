@@ -29,7 +29,20 @@ class _PageNavigationsState extends State<PageNavigations> {
       onGenerateRoute: (settings) {
         return PageRouteBuilder(
             settings: settings,
-            pageBuilder: (_, __, ___) => _getPageWidget(settings: settings),
+            pageBuilder: (_, __, ___) => Stack(
+                  children: [
+                    Container(
+                        decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('pictures/intro_bg.jpg'),
+                        fit: BoxFit.cover,
+                        colorFilter:
+                            ColorFilter.mode(Colors.black45, BlendMode.darken),
+                      ),
+                    )),
+                    _getPageWidget(settings: settings),
+                  ],
+                ),
             transitionsBuilder: (_, anim, __, child) {
               return FadeTransition(
                 opacity: anim,
