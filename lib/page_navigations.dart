@@ -25,6 +25,7 @@ class _PageNavigationsState extends State<PageNavigations> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: title,
+      theme: ThemeMock(context).theme,
       onGenerateRoute: (settings) {
         return PageRouteBuilder(
             settings: settings,
