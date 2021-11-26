@@ -34,7 +34,8 @@ class _PageNavigationsState extends State<PageNavigations> {
                     Container(
                         decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('pictures/intro_bg.jpg'),
+                        image: NetworkImage(
+                            'https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?size=626&ext=jpg'),
                         fit: BoxFit.cover,
                         colorFilter:
                             ColorFilter.mode(Colors.black45, BlendMode.darken),

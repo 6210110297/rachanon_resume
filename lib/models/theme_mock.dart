@@ -100,8 +100,8 @@ class ThemeMock {
               style: ElevatedButton.styleFrom(
                 elevation: 10,
                 shape: CircleBorder(),
-                padding: EdgeInsets.all(20),
-                primary: Colors.blueGrey, // <-- Button color
+                padding: EdgeInsets.all(10),
+                primary: Colors.white, // <-- Button color
                 onPrimary: Colors.white, // <-- Splash color
               ),
             ));
