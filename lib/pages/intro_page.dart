@@ -1,5 +1,6 @@
 import 'package:rachanon_resume/page_navigations.dart';
 import 'package:rachanon_resume/models/_models.dart';
+import 'package:rachanon_resume/widgets/_widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,43 +13,35 @@ class IntroPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Intro page',
+        Text("Rachanon's Website",
+            textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
                 .headline1!
-                .apply(fontSizeFactor: 2.5)),
+                .apply(fontSizeFactor: 2)),
         Container(
           margin: EdgeInsets.only(top: 100),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Tooltip(
-                message: 'Test Page',
-                child: ElevatedButton(
-                    child: gradientButton(
-                      child: Icon(
-                        Icons.warning,
-                        size: buttonSize,
-                      ),
-                    ),
-                    onPressed: () =>
-                        goto(page: EnumNavigations.test, context: context)),
-              ),
-              Tooltip(
-                message: 'Facebook',
-                child: ElevatedButton(
-                    child: gradientButton(
-                        child: Icon(Icons.facebook, size: buttonSize)),
-                    onPressed: () =>
-                        launch('https://www.facebook.com/satter1919')),
-              ),
-              Tooltip(
-                message: 'Main Page',
-                child: ElevatedButton(
-                    child: gradientButton(
-                        child: Icon(Icons.arrow_forward, size: buttonSize)),
-                    onPressed: () =>
-                        goto(page: EnumNavigations.main, context: context)),
+              GradientCircleButton(
+                  tooltip: 'Test Page',
+                  child: Icon(
+                    Icons.warning,
+                    size: buttonSize,
+                  ),
+                  onPressed: () =>
+                      goto(page: EnumNavigations.test, context: context)),
+              GradientCircleButton(
+                  tooltip: 'Facebook',
+                  child: Icon(Icons.facebook, size: buttonSize),
+                  onPressed: () =>
+                      launch('https://www.facebook.com/satter1919')),
+              GradientCircleButton(
+                tooltip: 'Main Page',
+                child: Icon(Icons.arrow_forward, size: buttonSize),
+                onPressed: () =>
+                    goto(page: EnumNavigations.main, context: context),
               ),
             ],
           ),
@@ -62,6 +55,6 @@ class IntroPage extends StatelessWidget {
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: LinearGradient(
-              colors: <Color>[Colors.blue[400]!, Colors.pink[200]!])),
+              colors: <Color>[Colors.blue[800]!, Colors.pink[800]!])),
       child: child);
 }
