@@ -1,74 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:rachanon_resume/pages/aboutme_page.dart';
+
+const List<Tab> tabs = <Tab>[
+  Tab(text: 'Info'),
+  Tab(text: 'About me'),
+  Tab(text: 'Pupa'),
+  Tab(text: 'Experience'),
+  Tab(text: 'Event'),
+];
 
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(
-          height: 300,
-          color: Color.fromRGBO(255, 255, 255, 0.5),
-          padding: EdgeInsets.all(20),
-          alignment: Alignment.centerLeft,
-          // decoration: BoxDecoration(
-          //   color: Colors.white,
-          //   image: DecorationImage(
-          //     image: NetworkImage(
-          //         'https://raw.githubusercontent.com/6210110297/rachanon_resume/master/assets/pictures/cool_pic.jpg'),
-          //     fit: BoxFit.contain,
-          //   ),
-          // ),
-          child: Row(
-            children: [
-              Container(
-                child: Image.network(
-                    'https://raw.githubusercontent.com/6210110297/rachanon_resume/master/assets/pictures/cool_pic.jpg'),
+    return DefaultTabController(
+      length: 5,
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 50,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: <Color>[Colors.blue[800]!, Colors.pink[800]!],
               ),
-              Container(
-                margin: EdgeInsets.only(left: 20),
-                child: Text(
-                  'Rachanon Khongchai',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline1!
-                      .apply(color: Colors.black),
+            ),
+            child: Scaffold(
+              backgroundColor: Color.fromRGBO(255, 255, 255, 0),
+              appBar: TabBar(
+                tabs: tabs,
+                automaticIndicatorColorAdjustment: false,
+                indicatorColor: Colors.white,
+              ),
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              children: List<Widget>.generate(
+                5,
+                (index) => Container(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                  color: Color.fromRGBO(255, 255, 255, 0.5),
+                  child: AboutMePage(),
                 ),
               ),
-            ],
-          ),
-        ),
-        Container(
-          alignment: Alignment.topCenter,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: <Color>[Colors.blue[800]!, Colors.pink[800]!])),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                'Info',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              Text(
-                'About me',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              Text(
-                'Pupa',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              Text(
-                'Skill/Experience',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              Text(
-                'Event',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-            ],
-          ),
-        ),
-      ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -5,6 +5,21 @@ class ThemeMock {
 
   ThemeMock(BuildContext context)
       : theme = ThemeData(
+            tabBarTheme: TabBarTheme(
+              labelColor: Colors.white,
+              labelStyle: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                fontFamily: 'Sarabun',
+              ),
+              unselectedLabelStyle: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                fontFamily: 'Sarabun',
+              ),
+            ),
             fontFamily: 'Sarabun',
             textTheme: TextTheme(
               headline1: TextStyle(
